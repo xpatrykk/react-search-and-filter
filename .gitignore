@@ -1,0 +1,15 @@
+node_modules/
+dist/
+coverage/
+.vercel/
+.env
+.env.*
+!.env.example
+.DS_Store
+MIGRATION.md
+work/
+.superpowers/
+playwright-report/
+test-results/
+*.tgz
+docs-dist/

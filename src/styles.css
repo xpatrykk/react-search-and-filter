@@ -1,0 +1,85 @@
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities) source(none);
+@source "./";
+@theme {
+  --color-primary: #293b58;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #eef2f8;
+  --color-secondary-foreground: #293b58;
+  --color-background: #ffffff;
+  --color-foreground: #17243b;
+  --color-muted-foreground: #536277;
+  --color-input: #c7d0dd;
+  --color-border: #d8dfea;
+  --color-ring: #315efb;
+  --color-accent: #e3eaff;
+  --color-accent-foreground: #17243b;
+  --color-popover: #ffffff;
+  --color-popover-foreground: #17243b;
+  --color-destructive: #ad2436;
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+}
+@layer components {
+  .rsf,
+  .rsf-portal {
+    font-family: var(--font-sans);
+    color: var(--color-foreground);
+    line-height: 1.5;
+    text-align: start;
+  }
+  .rsf *,
+  .rsf-portal,
+  .rsf-portal * {
+    box-sizing: border-box;
+  }
+  .rsf :where(button, input),
+  .rsf-portal :where(button, input) {
+    font-family: inherit;
+  }
+  .rsf :where(p, h2, h3, ul, ol),
+  .rsf-portal :where(p, h2, h3, ul, ol) {
+    margin-block-start: 0;
+  }
+  .rsf :where(ul, ol),
+  .rsf-portal :where(ul, ol) {
+    padding-inline-start: 0;
+    list-style: none;
+  }
+  .rsf :where(button),
+  .rsf-portal :where(button) {
+    cursor: pointer;
+    border-width: 0;
+    background-color: transparent;
+    color: inherit;
+  }
+  .rsf :where(button:disabled),
+  .rsf-portal :where(button:disabled) {
+    cursor: default;
+  }
+  .rsf :where(svg),
+  .rsf-portal :where(svg) {
+    vertical-align: middle;
+  }
+  .rsf :where(button:focus-visible, input:focus-visible),
+  .rsf-portal :where(button:focus-visible, input:focus-visible) {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 3px;
+  }
+  .rsf [data-slot="button"],
+  .rsf-portal [data-slot="button"] {
+    border-style: solid;
+  }
+  .rsf [aria-busy="true"] {
+    cursor: progress;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .rsf *,
+    .rsf-portal,
+    .rsf-portal * {
+      animation: none !important;
+      transition: none !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
